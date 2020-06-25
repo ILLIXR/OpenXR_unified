@@ -22,11 +22,56 @@
 #include "math_3d.h"
 
 #include <SDL2/SDL_events.h>
+#include <time.h>
 
+#include <time.h>
+#include <assert.h>
+#include <stdio.h>
+
+#define MILLI 1000
+#define MICRO MILLI*MILLI
+#define NANO MICRO*MILLI
+// const long long MILLI = 1000;
+// const long long MICRO = MILLI*MILLI;
+// const long long NANO  = MICRO*MILLI;
+
+static long long timespec_sub(struct timespec* a, struct timespec* b) {
+	return (a->tv_sec - b->tv_sec) * NANO + (a->tv_nsec - b->tv_nsec);
+}
+
+typedef struct {
+	const char* name;
+	clockid_t clock_id;
+	struct timespec start;
+	struct timespec stop;
+	long long diff;
+} timer;
+
+static void start_timer(timer* timer) {
+	int r = clock_gettime(timer->clock_id, &timer->start);
+	assert(!r);
+}
+
+static void stop_timer(timer* timer) {
+	// assert timer was already started
+	assert(timer->start.tv_nsec != 0 || timer->start.tv_sec != 0);
+
+	int r = clock_gettime(timer->clock_id, &timer->stop);
+	assert(!r);
+
+	timer->diff = timespec_sub(&timer->stop, &timer->start);
+}
+
+static void print_timer(timer* timer) {
+	assert(timer->name);
+	int r = printf("cpu_timer,%s,%llu\n", timer->name, timer->diff);
+	assert(r);
+}
 // upstream validation layer might not work at this time
 // enable at your own risk
 bool useCoreValidationLayer = false;
 bool useApiDumpLayer = false;
+
 
 typedef struct xr_example
 {
@@ -279,8 +324,6 @@ init_openxr(xr_example* self)
 	printf("Runtime supports %d view configurations\n", viewConfigurationCount);
 
 	XrViewConfigurationType viewConfigurations[viewConfigurationCount];
-	for (uint32_t i = 0; i < viewConfigurationCount; ++i)
-		viewConfigurations[i] = XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
 	result = xrEnumerateViewConfigurations(
 	    self->instance, systemId, viewConfigurationCount, &viewConfigurationCount,
 	    viewConfigurations);
@@ -365,9 +408,10 @@ init_openxr(xr_example* self)
 		       self->configuration_views[0].maxSwapchainSampleCount);
 	}
 
-	// Checking if the runtime supports the Graphics API we want to use is
-	// optional! For OpenGL this is not too useful because all versions should
-	// work. Other APIs have more useful requirements.
+	// For all graphics APIs, it's required to make the
+	// "xrGet...GraphicsRequirements" call before creating a session. The
+	// information retrieved by the OpenGL version of this call isn't very useful.
+	// Other APIs have more useful requirements.
 	{
 		XrGraphicsRequirementsOpenGLKHR opengl_reqs = {
 		    .type = XR_TYPE_GRAPHICS_REQUIREMENTS_OPENGL_KHR, .next = NULL};
@@ -466,13 +510,19 @@ init_openxr(xr_example* self)
 		printf("Runtime supports %d reference spaces: ", referenceSpacesCount);
 		for (uint32_t i = 0; i < referenceSpacesCount; i++) {
 			if (referenceSpaces[i] == XR_REFERENCE_SPACE_TYPE_LOCAL) {
-				printf("/space/local%s", i == referenceSpacesCount - 1 ? "\n" : ", ");
+				printf("XR_REFERENCE_SPACE_TYPE_LOCAL%s",
+				       i == referenceSpacesCount - 1 ? "\n" : ", ");
 				localSpaceSupported = true;
 			} else if (referenceSpaces[i] == XR_REFERENCE_SPACE_TYPE_STAGE) {
-				printf("/space/stage%s", i == referenceSpacesCount - 1 ? "\n" : ", ");
+				printf("XR_REFERENCE_SPACE_TYPE_STAGE%s",
+				       i == referenceSpacesCount - 1 ? "\n" : ", ");
 				stageSpaceSupported = true;
 			} else if (referenceSpaces[i] == XR_REFERENCE_SPACE_TYPE_VIEW) {
-				printf("/user/head%s", i == referenceSpacesCount - 1 ? "\n" : ", ");
+				printf("XR_REFERENCE_SPACE_TYPE_VIEW%s",
+				       i == referenceSpacesCount - 1 ? "\n" : ", ");
+			} else {
+				printf("some other space with type %u%s", referenceSpaces[i],
+				       i == referenceSpacesCount - 1 ? "\n" : ", ");
 			}
 		}
 
@@ -510,10 +560,7 @@ init_openxr(xr_example* self)
 		return 1;
 	printf("Session started!\n");
 
-	// Hmm, do something
-	glXMakeCurrent(self->graphics_binding_gl.xDisplay,
-	               self->graphics_binding_gl.glxDrawable,
-	               self->graphics_binding_gl.glxContext);
+
 
 	// --- Create Swapchains
 	uint32_t swapchainFormatCount;
@@ -617,8 +664,6 @@ init_openxr(xr_example* self)
 void
 main_loop(xr_example* self)
 {
-	XrEventDataBuffer runtimeEvent = {.type = XR_TYPE_EVENT_DATA_BUFFER,
-	                                  .next = NULL};
 
 	SDL_Event sdlEvent;
 
@@ -657,76 +702,195 @@ main_loop(xr_example* self)
 	xrStringToPath(self->instance, "/user/hand/left", &handPaths[0]);
 	xrStringToPath(self->instance, "/user/hand/right", &handPaths[1]);
 
-	XrActionCreateInfo actionInfo = {
-		.type = XR_TYPE_ACTION_CREATE_INFO,
-		.next = NULL,
-		.actionType = XR_ACTION_TYPE_FLOAT_INPUT,
-		.countSubactionPaths = hands,
-		.subactionPaths = handPaths
-	};
-	// assuming every controller has some form of main "trigger" button
-	strcpy(actionInfo.actionName, "triggergrab");
-	strcpy(actionInfo.localizedActionName, "Grab Object with Trigger Button");
-
 	XrAction grabAction;
-	result = xrCreateAction(exampleSet, &actionInfo, &grabAction);
-	if (!xr_result(self->instance, result, "failed to create grab action"))
-		return;
+	{
+		XrActionCreateInfo actionInfo = {
+			.type = XR_TYPE_ACTION_CREATE_INFO,
+			.next = NULL,
+			.actionType = XR_ACTION_TYPE_FLOAT_INPUT,
+			.countSubactionPaths = hands,
+			.subactionPaths = handPaths
+		};
+		// assuming every controller has some form of main "trigger" button
+		strcpy(actionInfo.actionName, "triggergrab");
+		strcpy(actionInfo.localizedActionName, "Grab Object with Trigger Button");
 
-	actionInfo.actionType = XR_ACTION_TYPE_POSE_INPUT;
-	strcpy(actionInfo.actionName, "handpose");
-	strcpy(actionInfo.localizedActionName, "Hand Pose");
-	actionInfo.countSubactionPaths = hands;
-	actionInfo.subactionPaths = handPaths;
+		result = xrCreateAction(exampleSet, &actionInfo, &grabAction);
+		if (!xr_result(self->instance, result, "failed to create grab action"))
+			return;
+	}
+
+	// just an example that could sensibly use one axis of e.g. a thumbstick
+	XrAction leverAction;
+	{
+		XrActionCreateInfo actionInfo = {
+			.type = XR_TYPE_ACTION_CREATE_INFO,
+			.next = NULL,
+			.actionType = XR_ACTION_TYPE_FLOAT_INPUT,
+			.countSubactionPaths = hands,
+			.subactionPaths = handPaths
+		};
+		// assuming every controller has some form of main "trigger" button
+		strcpy(actionInfo.actionName, "lever");
+		strcpy(actionInfo.localizedActionName, "Move a lever forward or backward");
+
+		result = xrCreateAction(exampleSet, &actionInfo, &leverAction);
+		if (!xr_result(self->instance, result, "failed to create lever action"))
+			return;
+	}
 
 	XrAction poseAction;
-	result = xrCreateAction(exampleSet, &actionInfo, &poseAction);
-	if (!xr_result(self->instance, result, "failed to create pose action"))
-		return;
+	{
+		XrActionCreateInfo actionInfo = {
+			.type = XR_TYPE_ACTION_CREATE_INFO,
+			.next = NULL,
+			.actionType = XR_ACTION_TYPE_POSE_INPUT,
+			.countSubactionPaths = hands,
+			.subactionPaths = handPaths
+		};
+		strcpy(actionInfo.actionName, "handpose");
+		strcpy(actionInfo.localizedActionName, "Hand Pose");
+
+		result = xrCreateAction(exampleSet, &actionInfo, &poseAction);
+		if (!xr_result(self->instance, result, "failed to create pose action"))
+			return;
+	}
+
+	XrAction hapticAction;
+	{
+		XrActionCreateInfo actionInfo = {
+			.type = XR_TYPE_ACTION_CREATE_INFO,
+			.next = NULL,
+			.actionType = XR_ACTION_TYPE_VIBRATION_OUTPUT,
+			.countSubactionPaths = hands,
+			.subactionPaths = handPaths
+		};
+		strcpy(actionInfo.actionName, "haptic");
+		strcpy(actionInfo.localizedActionName, "Haptic Vibration");
+		result = xrCreateAction(exampleSet, &actionInfo, &hapticAction);
+		if (!xr_result(self->instance, result, "failed to create haptic action"))
+			return;
+	}
 
 	XrPath selectClickPath[hands];
 	xrStringToPath(self->instance, "/user/hand/left/input/select/click", &selectClickPath[0]);
 	xrStringToPath(self->instance, "/user/hand/right/input/select/click", &selectClickPath[1]);
 
+	XrPath triggerValuePath[hands];
+	xrStringToPath(self->instance, "/user/hand/left/input/trigger/value", &triggerValuePath[0]);
+	xrStringToPath(self->instance, "/user/hand/right/input/trigger/value", &triggerValuePath[1]);
+
+	XrPath thumbstickYPath[hands];
+	xrStringToPath(self->instance, "/user/hand/left/input/thumbstick/y", &thumbstickYPath[0]);
+	xrStringToPath(self->instance, "/user/hand/right/input/thumbstick/y", &thumbstickYPath[1]);
+
 	XrPath posePath[hands];
 	xrStringToPath(self->instance, "/user/hand/left/input/grip/pose", &posePath[0]);
 	xrStringToPath(self->instance, "/user/hand/right/input/grip/pose", &posePath[1]);
 
-	XrPath khrSimpleInteractionProfilePath;
-	result = xrStringToPath(self->instance, "/interaction_profiles/khr/simple_controller", &khrSimpleInteractionProfilePath);
-	if (!xr_result(self->instance, result, "failed to get interaction profile"))
-		return;
+	XrPath hapticPath[hands];
+	xrStringToPath(self->instance, "/user/hand/left/output/haptic", &hapticPath[0]);
+	xrStringToPath(self->instance, "/user/hand/right/output/haptic", &hapticPath[1]);
 
-	 const XrActionSuggestedBinding bindings[4] = {
-		{
-			.action = poseAction,
-			.binding = posePath[0]
-		},
-		{
-			.action = poseAction,
-			.binding = posePath[1]
-		},
-		{
-			.action = grabAction,
-			.binding = selectClickPath[0]
-		},
-		{
-			.action = grabAction,
-			.binding = selectClickPath[1]
-		}
-	};
+	{
+		XrPath interactionProfilePath;
+		result = xrStringToPath(self->instance, "/interaction_profiles/khr/simple_controller", &interactionProfilePath);
+		if (!xr_result(self->instance, result, "failed to get interaction profile"))
+			return;
 
-	const XrInteractionProfileSuggestedBinding suggestedBindings = {
-		.type = XR_TYPE_INTERACTION_PROFILE_SUGGESTED_BINDING,
-		.next = NULL,
-		.interactionProfile = khrSimpleInteractionProfilePath,
-		.countSuggestedBindings = 4,
-		.suggestedBindings = bindings
-	};
+		const XrActionSuggestedBinding bindings[] = {
+			{
+				.action = poseAction,
+				.binding = posePath[0]
+			},
+			{
+				.action = poseAction,
+				.binding = posePath[1]
+			},
+			{
+				.action = grabAction,
+				.binding = selectClickPath[0]
+			},
+			{
+				.action = grabAction,
+				.binding = selectClickPath[1]
+			},
+			{
+				.action = hapticAction,
+				.binding = hapticPath[0]
+			},
+			{
+				.action = hapticAction,
+				.binding = hapticPath[1]
+			},
+		};
 
-	xrSuggestInteractionProfileBindings(self->instance, &suggestedBindings);
-	if (!xr_result(self->instance, result, "failed to suggest bindings"))
-		return;
+		const XrInteractionProfileSuggestedBinding suggestedBindings = {
+			.type = XR_TYPE_INTERACTION_PROFILE_SUGGESTED_BINDING,
+			.next = NULL,
+			.interactionProfile = interactionProfilePath,
+			.countSuggestedBindings = sizeof(bindings) / sizeof(bindings[0]),
+			.suggestedBindings = bindings
+		};
+
+		xrSuggestInteractionProfileBindings(self->instance, &suggestedBindings);
+		if (!xr_result(self->instance, result, "failed to suggest bindings"))
+			return;
+	}
+
+	{
+		XrPath interactionProfilePath;
+		result = xrStringToPath(self->instance, "/interaction_profiles/valve/index_controller", &interactionProfilePath);
+		if (!xr_result(self->instance, result, "failed to get interaction profile"))
+			return;
+
+		const XrActionSuggestedBinding bindings[] = {
+			{
+				.action = poseAction,
+				.binding = posePath[0]
+			},
+			{
+				.action = poseAction,
+				.binding = posePath[1]
+			},
+			{
+				.action = grabAction,
+				.binding = triggerValuePath[0]
+			},
+			{
+				.action = grabAction,
+				.binding = triggerValuePath[1]
+			},
+			{
+				.action = leverAction,
+				.binding = thumbstickYPath[0]
+			},
+			{
+				.action = leverAction,
+				.binding = thumbstickYPath[1]
+			},
+			{
+				.action = hapticAction,
+				.binding = hapticPath[0]
+			},
+			{
+				.action = hapticAction,
+				.binding = hapticPath[1]
+			},
+		};
+
+		const XrInteractionProfileSuggestedBinding suggestedBindings = {
+			.type = XR_TYPE_INTERACTION_PROFILE_SUGGESTED_BINDING,
+			.next = NULL,
+			.interactionProfile = interactionProfilePath,
+			.countSuggestedBindings = sizeof(bindings) / sizeof(bindings[0]),
+			.suggestedBindings = bindings
+		};
+
+		xrSuggestInteractionProfileBindings(self->instance, &suggestedBindings);
+		if (!xr_result(self->instance, result, "failed to suggest bindings"))
+			return;
+	}
 
 	XrActionSpaceCreateInfo actionSpaceInfo = {
 		.type = XR_TYPE_ACTION_SPACE_CREATE_INFO,
@@ -759,33 +923,37 @@ main_loop(xr_example* self)
 
 	while (running) {
 
-		// --- Wait for our turn to render a frame
-		XrFrameState frameState = {.type = XR_TYPE_FRAME_STATE, .next = NULL};
-		XrFrameWaitInfo frameWaitInfo = {.type = XR_TYPE_FRAME_WAIT_INFO,
-		                                 .next = NULL};
-		result = xrWaitFrame(self->session, &frameWaitInfo, &frameState);
-		if (!xr_result(self->instance, result,
-		               "xrWaitFrame() was not successful, exiting..."))
-			break;
+		struct timespec ts;
+		clock_gettime(CLOCK_REALTIME, &ts);
 
+		struct timespec ts3;
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts3);
 		// --- Handle runtime Events
-		// we do this right after xrWaitFrame() so we can go idle or
-		// break out of the main render loop as early as possible into
-		// the frame and don't have to uselessly render or submit one
+		// we do this before xrWaitFrame() so we can go idle or
+		// break out of the main render loop as early as possible and don't have to
+		// uselessly render or submit one. Calling xrWaitFrame commits you to
+		// calling xrBeginFrame eventually.
+		//! @todo Loop until all events are handled
+
+		XrEventDataBuffer runtimeEvent = {.type = XR_TYPE_EVENT_DATA_BUFFER,
+		                                  .next = NULL};
 		bool isStopping = false;
 		XrResult pollResult = xrPollEvent(self->instance, &runtimeEvent);
 		if (pollResult == XR_SUCCESS) {
 			switch (runtimeEvent.type) {
 			case XR_TYPE_EVENT_DATA_EVENTS_LOST: {
-				printf("EVENT: events data lost!\n");
 				XrEventDataEventsLost* event = (XrEventDataEventsLost*)&runtimeEvent;
-				// do we care if the runtmime loses events?
+				printf("EVENT: %d events data lost!\n", event->lostEventCount);
+				// do we care if the runtime loses events?
 				break;
 			}
 			case XR_TYPE_EVENT_DATA_INSTANCE_LOSS_PENDING: {
-				printf("EVENT: instance loss pending!\n");
 				XrEventDataInstanceLossPending* event =
 				    (XrEventDataInstanceLossPending*)&runtimeEvent;
+				printf("EVENT: instance loss pending at %lu! Destroying instance.\n",
+				       event->lossTime);
+				// Handling this: spec says destroy instance
+				// (can optionally recreate it)
 				running = false;
 				break;
 			}
@@ -806,9 +974,10 @@ main_loop(xr_example* self)
 				break;
 			}
 			case XR_TYPE_EVENT_DATA_REFERENCE_SPACE_CHANGE_PENDING: {
-				printf("EVENT: reference space change pengind!\n");
+				printf("EVENT: reference space change pending!\n");
 				XrEventDataReferenceSpaceChangePending* event =
 				    (XrEventDataReferenceSpaceChangePending*)&runtimeEvent;
+				(void)event;
 				// TODO: do something
 				break;
 			}
@@ -816,6 +985,7 @@ main_loop(xr_example* self)
 				printf("EVENT: interaction profile changed!\n");
 				XrEventDataInteractionProfileChanged* event =
 				    (XrEventDataInteractionProfileChanged*)&runtimeEvent;
+				(void)event;
 				// TODO: do something
 				break;
 			}
@@ -824,6 +994,7 @@ main_loop(xr_example* self)
 				printf("EVENT: visibility mask changed!!\n");
 				XrEventDataVisibilityMaskChangedKHR* event =
 				    (XrEventDataVisibilityMaskChangedKHR*)&runtimeEvent;
+				(void)event;
 				// this event is from an extension
 				break;
 			}
@@ -831,6 +1002,7 @@ main_loop(xr_example* self)
 				printf("EVENT: perf settings!\n");
 				XrEventDataPerfSettingsEXT* event =
 				    (XrEventDataPerfSettingsEXT*)&runtimeEvent;
+				(void)event;
 				// this event is from an extension
 				break;
 			}
@@ -863,11 +1035,23 @@ main_loop(xr_example* self)
 			xrRequestExitSession(self->session);
 		}
 
+		// --- Wait for our turn to do head-pose dependent computation and render a
+		// frame
+		XrFrameState frameState = {.type = XR_TYPE_FRAME_STATE, .next = NULL};
+		XrFrameWaitInfo frameWaitInfo = {.type = XR_TYPE_FRAME_WAIT_INFO,
+		                                 .next = NULL};
+		result = xrWaitFrame(self->session, &frameWaitInfo, &frameState);
+		if (!xr_result(self->instance, result,
+		               "xrWaitFrame() was not successful, exiting..."))
+			break;
+
 		// --- Create projection matrices and view matrices for each eye
-		XrViewLocateInfo viewLocateInfo = {.type = XR_TYPE_VIEW_LOCATE_INFO,
-		                                   .displayTime =
-		                                       frameState.predictedDisplayTime,
-		                                   .space = self->local_space};
+		XrViewLocateInfo viewLocateInfo = {
+		    .type = XR_TYPE_VIEW_LOCATE_INFO,
+		    .next = NULL,
+		    .viewConfigurationType = XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO,
+		    .displayTime = frameState.predictedDisplayTime,
+		    .space = self->local_space};
 
 		XrView views[self->view_count];
 		for (uint32_t i = 0; i < self->view_count; i++) {
@@ -882,55 +1066,45 @@ main_loop(xr_example* self)
 		if (!xr_result(self->instance, result, "Could not locate views"))
 			break;
 
-		// --- Begin frame
-		XrFrameBeginInfo frameBeginInfo = {.type = XR_TYPE_FRAME_BEGIN_INFO,
-		                                   .next = NULL};
-
-		result = xrBeginFrame(self->session, &frameBeginInfo);
-		if (!xr_result(self->instance, result, "failed to begin frame!"))
-			break;
-
+		//! @todo Move this action processing to before xrWaitFrame, probably.
 		const XrActiveActionSet activeActionSet = {
-			.actionSet = exampleSet,
-			.subactionPath = XR_NULL_PATH
+		    .actionSet = exampleSet,
+		    .subactionPath = XR_NULL_PATH,
 		};
 
 		XrActionsSyncInfo syncInfo = {
-			.type = XR_TYPE_ACTIONS_SYNC_INFO,
-			.countActiveActionSets = 1,
-			.activeActionSets = &activeActionSet
+		    .type = XR_TYPE_ACTIONS_SYNC_INFO,
+		    .countActiveActionSets = 1,
+		    .activeActionSets = &activeActionSet,
 		};
 		result = xrSyncActions(self->session, &syncInfo);
 		xr_result(self->instance, result, "failed to sync actions!");
 
-		XrActionStateGetInfo getInfo = {
-			.type = XR_TYPE_ACTION_STATE_GET_INFO,
-			.next = NULL,
-			.action = grabAction,
-			.subactionPath = handPaths[0]
-		};
-
-		XrActionStateFloat grabValue = {
-			.type = XR_TYPE_ACTION_STATE_FLOAT,
-			.next = NULL
-		};
-		result = xrGetActionStateFloat(self->session, &getInfo, &grabValue);
-		xr_result(self->instance, result, "failed to get grab value!");
-
-		getInfo.action = poseAction;
-		XrActionStatePose poseState = {
-			.type = XR_TYPE_ACTION_STATE_POSE,
-			.next = NULL
-		};
-		result = xrGetActionStatePose(self->session, &getInfo, &poseState);
-		xr_result(self->instance, result, "failed to get pose value!");
-
-		//printf("Hand poses active: %d\n", poseState.isActive);
-		//printf("Grab active %d, current %f, changed %d\n", grabValue.isActive, grabValue.currentState, grabValue.changedSinceLastSync);
-
+		// query each value / location with a subaction path != XR_NULL_PATH
+		// resulting in individual values per hand/.
+		XrActionStateFloat grabValue[hands];
+		XrActionStateFloat leverValue[hands];
 		XrSpaceLocation spaceLocation[hands];
 		bool spaceLocationValid[hands];
+
 		for (int i = 0; i < hands; i++) {
+
+			XrActionStatePose poseState = {
+				.type = XR_TYPE_ACTION_STATE_POSE,
+				.next = NULL
+			};
+			{
+				XrActionStateGetInfo getInfo = {
+					.type = XR_TYPE_ACTION_STATE_GET_INFO,
+					.next = NULL,
+					.action = poseAction,
+					.subactionPath = handPaths[i]
+				};
+				result = xrGetActionStatePose(self->session, &getInfo, &poseState);
+				xr_result(self->instance, result, "failed to get pose value!");
+			}
+			//printf("Hand pose %d active: %d\n", i, poseState.isActive);
+
 			spaceLocation[i].type = XR_TYPE_SPACE_LOCATION;
 			spaceLocation[i].next = NULL;
 
@@ -939,20 +1113,83 @@ main_loop(xr_example* self)
 			spaceLocationValid[i] =
 				//(spaceLocation[i].locationFlags & XR_SPACE_LOCATION_POSITION_VALID_BIT) != 0 &&
 				(spaceLocation[i].locationFlags & XR_SPACE_LOCATION_ORIENTATION_VALID_BIT) != 0;
+
+			/*
+			printf("Pose %d valid %d: %f %f %f %f, %f %f %f\n", i, spaceLocationValid[i],
+				spaceLocation[0].pose.orientation.x, spaceLocation[0].pose.orientation.y,
+				spaceLocation[0].pose.orientation.z, spaceLocation[0].pose.orientation.w,
+				spaceLocation[0].pose.position.x, spaceLocation[0].pose.position.y,
+				spaceLocation[0].pose.position.z
+			);
+			*/
+
+			grabValue[i].type = XR_TYPE_ACTION_STATE_FLOAT;
+			grabValue[i].next = NULL;
+			{
+				XrActionStateGetInfo getInfo = {
+					.type = XR_TYPE_ACTION_STATE_GET_INFO,
+					.next = NULL,
+					.action = grabAction,
+					.subactionPath = handPaths[i]
+				};
+
+				result = xrGetActionStateFloat(self->session, &getInfo, &grabValue[i]);
+				xr_result(self->instance, result, "failed to get grab value!");
+			}
+
+			//printf("Grab %d active %d, current %f, changed %d\n", i, grabValue[i].isActive, grabValue[i].currentState, grabValue[i].changedSinceLastSync);
+
+			if (grabValue[i].isActive && grabValue[i].currentState > 0.75) {
+				XrHapticVibration vibration =  {
+					.type = XR_TYPE_HAPTIC_VIBRATION,
+					.next = NULL,
+					.amplitude = 0.5,
+					.duration = XR_MIN_HAPTIC_DURATION,
+					.frequency = XR_FREQUENCY_UNSPECIFIED
+				};
+
+				XrHapticActionInfo hapticActionInfo = {
+					.type = XR_TYPE_HAPTIC_ACTION_INFO,
+					.next = NULL,
+					.action = hapticAction,
+					.subactionPath = handPaths[i]
+				};
+				result = xrApplyHapticFeedback(self->session, &hapticActionInfo, (const XrHapticBaseHeader*)&vibration);
+				xr_result(self->instance, result, "failed to apply haptic feedback!");
+				//printf("Sent haptic output to hand %d\n", i);
+
+			}
+
+
+			leverValue[i].type = XR_TYPE_ACTION_STATE_FLOAT;
+			leverValue[i].next = NULL;
+			{
+				XrActionStateGetInfo getInfo = {
+					.type = XR_TYPE_ACTION_STATE_GET_INFO,
+					.next = NULL,
+					.action = leverAction,
+					.subactionPath = handPaths[i]
+				};
+
+				result = xrGetActionStateFloat(self->session, &getInfo, &leverValue[i]);
+				xr_result(self->instance, result, "failed to get lever value!");
+			}
+			if (leverValue[i].isActive && leverValue[i].currentState != 0) {
+				printf("Lever value %d: changed %d: %f\n", i, leverValue[i].changedSinceLastSync, leverValue[i].currentState);
+			}
 		};
 
-		/*
-		printf("Left Pose: %f %f %f %f, %f %f %f\n",
-			   spaceLocation[0].pose.orientation.x, spaceLocation[0].pose.orientation.y,
-			   spaceLocation[0].pose.orientation.z, spaceLocation[0].pose.orientation.w,
-			   spaceLocation[0].pose.position.x, spaceLocation[0].pose.position.y,
-			   spaceLocation[0].pose.position.z
-  			);
-		*/
+
+		// --- Begin frame
+		XrFrameBeginInfo frameBeginInfo = {.type = XR_TYPE_FRAME_BEGIN_INFO,
+		                                   .next = NULL};
+
+		result = xrBeginFrame(self->session, &frameBeginInfo);
+		if (!xr_result(self->instance, result, "failed to begin frame!"))
+			break;
 
 		XrCompositionLayerProjectionView projection_views[self->view_count];
 
-		uint32_t bufferIndex;
 		// render each eye and fill projection_views with the result
 		for (uint32_t i = 0; i < self->view_count; i++) {
 			XrMatrix4x4f projectionMatrix;
@@ -972,7 +1209,7 @@ main_loop(xr_example* self)
 
 			XrSwapchainImageAcquireInfo swapchainImageAcquireInfo = {
 			    .type = XR_TYPE_SWAPCHAIN_IMAGE_ACQUIRE_INFO, .next = NULL};
-			
+			uint32_t bufferIndex;
 			result = xrAcquireSwapchainImage(
 			    self->swapchains[i], &swapchainImageAcquireInfo, &bufferIndex);
 			if (!xr_result(self->instance, result,
@@ -1002,6 +1239,9 @@ main_loop(xr_example* self)
 			projection_views[i].subImage.imageRect.extent.height =
 			    self->configuration_views[i].recommendedImageRectHeight;
 
+			timer t5 = {.name = "application_inner",.clock_id = CLOCK_REALTIME,};
+			start_timer(&t5);
+
 			renderFrame(self->configuration_views[i].recommendedImageRectWidth,
 			            self->configuration_views[i].recommendedImageRectHeight,
 			            projectionMatrix, inverseViewMatrix, &spaceLocation[0], &spaceLocation[1],
@@ -1009,6 +1249,8 @@ main_loop(xr_example* self)
 			            self->images[i][bufferIndex], i,
 			            frameState.predictedDisplayTime);
 			glFinish();
+			stop_timer(&t5);
+			print_timer(&t5);
 			XrSwapchainImageReleaseInfo swapchainImageReleaseInfo = {
 			    .type = XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO, .next = NULL};
 			result = xrReleaseSwapchainImage(self->swapchains[i],
@@ -1033,9 +1275,15 @@ main_loop(xr_example* self)
 		if (!xr_result(self->instance, result, "failed to end frame!"))
 			break;
 
-		blitNvsync(self->configuration_views[1].recommendedImageRectWidth,
-			            self->configuration_views[1].recommendedImageRectHeight,
-			            self->framebuffers[1][bufferIndex]);
+		struct timespec ts1;
+		clock_gettime(CLOCK_REALTIME, &ts1);
+		unsigned long long duration = (ts1.tv_sec - ts.tv_sec) * 1000000000 + ts1.tv_nsec - ts.tv_nsec;
+		printf("cpu_timer,application_wall,%llu\n", duration);
+
+		struct timespec ts4;
+		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts4);
+		unsigned long long duration2 = (ts4.tv_sec - ts3.tv_sec) * 1000000000 + ts4.tv_nsec - ts3.tv_nsec;
+		printf("cpu_timer,application_cpu,%llu\n", duration2);
 	}
 }
 

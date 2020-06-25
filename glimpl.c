@@ -23,8 +23,12 @@
 
 #include "glimpl.h"
 
+GLuint shaderProgramID = 0;
+GLuint VAOs[1] = {0};
+
 static const char* vertexshader =
-    "#version 450 core\n"
+    "#version 330 core\n"
+    "#extension GL_ARB_explicit_uniform_location : require\n"
     "layout(location = 0) in vec3 aPos;\n"
     "layout(location = 2) uniform mat4 model;\n"
     "layout(location = 3) uniform mat4 view;\n"
@@ -38,7 +42,8 @@ static const char* vertexshader =
     "}\n";
 
 static const char* fragmentshader =
-    "#version 450 core\n"
+    "#version 330 core\n"
+    "#extension GL_ARB_explicit_uniform_location : require\n"
     "layout(location = 0) out vec4 FragColor;\n"
     "layout(location = 1) uniform vec3 uniformColor;\n"
     "in vec2 vertexColor;\n"
@@ -87,7 +92,7 @@ initGLX(Display** xDisplay,
 
 	maincontext = SDL_GL_CreateContext(mainwindow);
 
-	SDL_GL_SetSwapInterval(1);
+	SDL_GL_SetSwapInterval(0);
 
 	_glBlitNamedFramebuffer = (PFNGLBLITNAMEDFRAMEBUFFERPROC)glXGetProcAddressARB(
 	    (GLubyte*)"glBlitNamedFramebuffer");
@@ -310,14 +315,8 @@ renderFrame(int w,
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-}
-
-void blitNvsync(
-	int w,
-	int h,
-	GLuint framebuffer
-	){
-	_glBlitNamedFramebuffer((GLuint)framebuffer, // readFramebuffer
+	if (viewIndex == 0) {
+		_glBlitNamedFramebuffer((GLuint)framebuffer, // readFramebuffer
 		                        (GLuint)0,    // backbuffer     // drawFramebuffer
 		                        (GLint)0,     // srcX0
 		                        (GLint)0,     // srcY0
@@ -330,7 +329,8 @@ void blitNvsync(
 		                        (GLbitfield)GL_COLOR_BUFFER_BIT, // mask
 		                        (GLenum)GL_LINEAR);              // filter
 
-	SDL_GL_SwapWindow(mainwindow);
+		SDL_GL_SwapWindow(mainwindow);
+	}
 }
 
 void
