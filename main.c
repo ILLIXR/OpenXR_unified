@@ -923,11 +923,9 @@ main_loop(xr_example* self)
 
 	while (running) {
 
-		struct timespec ts;
-		clock_gettime(CLOCK_REALTIME, &ts);
+		timer ts = {.name = "application_cpu",.clock_id = CLOCK_THREAD_CPUTIME_ID};
+		start_timer(&ts);
 
-		struct timespec ts3;
-		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts3);
 		// --- Handle runtime Events
 		// we do this before xrWaitFrame() so we can go idle or
 		// break out of the main render loop as early as possible and don't have to
@@ -1275,15 +1273,8 @@ main_loop(xr_example* self)
 		if (!xr_result(self->instance, result, "failed to end frame!"))
 			break;
 
-		struct timespec ts1;
-		clock_gettime(CLOCK_REALTIME, &ts1);
-		unsigned long long duration = (ts1.tv_sec - ts.tv_sec) * 1000000000 + ts1.tv_nsec - ts.tv_nsec;
-		printf("cpu_timer,application_wall,%llu\n", duration);
-
-		struct timespec ts4;
-		clock_gettime(CLOCK_THREAD_CPUTIME_ID, &ts4);
-		unsigned long long duration2 = (ts4.tv_sec - ts3.tv_sec) * 1000000000 + ts4.tv_nsec - ts3.tv_nsec;
-		printf("cpu_timer,application_cpu,%llu\n", duration2);
+		stop_timer(&ts);
+		print_timer(&ts);
 	}
 }
 
