@@ -22,51 +22,9 @@
 #include "math_3d.h"
 
 #include <SDL2/SDL_events.h>
-#include <time.h>
 
-#include <time.h>
-#include <assert.h>
-#include <stdio.h>
+#include "time_tracker.h"
 
-#define MILLI 1000
-#define MICRO MILLI*MILLI
-#define NANO MICRO*MILLI
-// const long long MILLI = 1000;
-// const long long MICRO = MILLI*MILLI;
-// const long long NANO  = MICRO*MILLI;
-
-static long long timespec_sub(struct timespec* a, struct timespec* b) {
-	return (a->tv_sec - b->tv_sec) * NANO + (a->tv_nsec - b->tv_nsec);
-}
-
-typedef struct {
-	const char* name;
-	clockid_t clock_id;
-	struct timespec start;
-	struct timespec stop;
-	long long diff;
-} timer;
-
-static void start_timer(timer* timer) {
-	int r = clock_gettime(timer->clock_id, &timer->start);
-	assert(!r);
-}
-
-static void stop_timer(timer* timer) {
-	// assert timer was already started
-	assert(timer->start.tv_nsec != 0 || timer->start.tv_sec != 0);
-
-	int r = clock_gettime(timer->clock_id, &timer->stop);
-	assert(!r);
-
-	timer->diff = timespec_sub(&timer->stop, &timer->start);
-}
-
-static void print_timer(timer* timer) {
-	assert(timer->name);
-	int r = printf("cpu_timer,%s,%llu\n", timer->name, timer->diff);
-	assert(r);
-}
 // upstream validation layer might not work at this time
 // enable at your own risk
 bool useCoreValidationLayer = false;
@@ -923,8 +881,8 @@ main_loop(xr_example* self)
 
 	while (running) {
 
-		timer ts = {.name = "application_cpu",.clock_id = CLOCK_THREAD_CPUTIME_ID};
-		start_timer(&ts);
+		timer tCPU = {.name = "application_cpu",.clock_id = CLOCK_THREAD_CPUTIME_ID};
+		start_timer(&tCPU);
 
 		// --- Handle runtime Events
 		// we do this before xrWaitFrame() so we can go idle or
@@ -1237,8 +1195,8 @@ main_loop(xr_example* self)
 			projection_views[i].subImage.imageRect.extent.height =
 			    self->configuration_views[i].recommendedImageRectHeight;
 
-			timer t5 = {.name = "application_inner",.clock_id = CLOCK_REALTIME,};
-			start_timer(&t5);
+			timer tWall = {.name = "application_inner",.clock_id = CLOCK_REALTIME,};
+			start_timer(&tWall);
 
 			renderFrame(self->configuration_views[i].recommendedImageRectWidth,
 			            self->configuration_views[i].recommendedImageRectHeight,
@@ -1247,8 +1205,8 @@ main_loop(xr_example* self)
 			            self->images[i][bufferIndex], i,
 			            frameState.predictedDisplayTime);
 			glFinish();
-			stop_timer(&t5);
-			print_timer(&t5);
+			stop_timer(&tWall);
+			print_timer(&tWall);
 			XrSwapchainImageReleaseInfo swapchainImageReleaseInfo = {
 			    .type = XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO, .next = NULL};
 			result = xrReleaseSwapchainImage(self->swapchains[i],
@@ -1273,8 +1231,8 @@ main_loop(xr_example* self)
 		if (!xr_result(self->instance, result, "failed to end frame!"))
 			break;
 
-		stop_timer(&ts);
-		print_timer(&ts);
+		stop_timer(&tCPU);
+		print_timer(&tCPU);
 	}
 }
 
