@@ -49,16 +49,10 @@ renderFrame(int w,
             int viewIndex,
             XrTime predictedDisplayTime);
 
-void blitNvsync(
-    int w,
-    int h,
-    GLuint framebuffer
-    );
-
 void
 genFramebuffers(int count, GLuint* framebuffers);
 
-GLuint shaderProgramID;
-GLuint VAOs[1];
+extern GLuint shaderProgramID;
+extern GLuint VAOs[1];
 
 #endif
