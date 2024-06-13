@@ -1,0 +1,2 @@
+/usr/bin/ar qc libaux_ogl.a CMakeFiles/aux_ogl.dir/ogl_api.c.o CMakeFiles/aux_ogl.dir/ogl_helpers.c.o CMakeFiles/aux_ogl.dir/glx_api.c.o CMakeFiles/aux_ogl.dir/egl_api.c.o
+/usr/bin/ranlib libaux_ogl.a

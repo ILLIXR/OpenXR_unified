@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/friedel/devel/OpenXR_unified/aux/util/u_git_tag.h
+stdint.h
+-
+
+/home/friedel/devel/OpenXR_unified/build/aux/util/u_git_tag.c
+util/u_git_tag.h
+/home/friedel/devel/OpenXR_unified/build/aux/util/util/u_git_tag.h
+

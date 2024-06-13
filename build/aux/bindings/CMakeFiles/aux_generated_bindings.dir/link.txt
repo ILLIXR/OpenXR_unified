@@ -1,0 +1,2 @@
+/usr/bin/ar qc libaux_generated_bindings.a CMakeFiles/aux_generated_bindings.dir/b_generated_bindings.c.o
+/usr/bin/ranlib libaux_generated_bindings.a

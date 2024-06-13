@@ -1,0 +1,1709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="openxr-example"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\usr\;CMake Files\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\cJSON\;CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\opencv4\;CMake Files\..\..\..\..\usr\share\;CMake Files\..\..\..\..\usr\share\eigen3\;CMake Files\..\..\..\..\usr\share\eigen3\cmake\;CMake Files\external\;CMake Files\include\;CMake Files\include\xrt\;CMake Files\aux\;CMake Files\aux\bindings\;CMake Files\aux\math\;CMake Files\aux\os\;CMake Files\aux\util\;CMake Files\aux\vk\;CMake Files\comp\;CMake Files\oxr\;CMake Files\ipc\;CMake Files\openxr_app\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="openxr-example">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/openxr-example" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/oxr/.."/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/renderdoc_api"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 openxr-example"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="openxr-example/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/openxr-example" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/usr/include/SDL2"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/oxr/.."/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/renderdoc_api"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 openxr-example/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="xrt-external-nanopb">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/external/libxrt-external-nanopb.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/external"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 xrt-external-nanopb"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="xrt-external-nanopb/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/external/libxrt-external-nanopb.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/external"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 xrt-external-nanopb/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/external/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_generated_bindings">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/bindings/libaux_generated_bindings.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/bindings"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 aux_generated_bindings"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_generated_bindings/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/bindings/libaux_generated_bindings.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/bindings"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 aux_generated_bindings/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/bindings/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_math">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/math/libaux_math.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/math"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 aux_math"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_math/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/math/libaux_math.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/math"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 aux_math/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/math/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_os">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/os/libaux_os.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/os"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 aux_os"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_os/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/os/libaux_os.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/os"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 aux_os/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/os/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_util">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/util/libaux_util.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/util"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_HAVE_SYSTEM_CJSON"/>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 aux_util"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_util/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/util/libaux_util.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/util"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_HAVE_SYSTEM_CJSON"/>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/usr/include/eigen3"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 aux_util/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/util/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_vk">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/vk/libaux_vk.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/vk"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 aux_vk"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="aux_vk/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/aux/vk/libaux_vk.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/aux/vk"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 aux_vk/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/aux/vk/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="comp_client">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/comp/libcomp_client.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/comp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/comp"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 comp_client"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="comp_client/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/comp/libcomp_client.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/comp"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/comp"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 comp_client/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/comp/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="st_oxr">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/oxr/libst_oxr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/oxr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXR_USE_GRAPHICS_API_VULKAN"/>
+					<Add option="-DXR_USE_GRAPHICS_API_OPENGL"/>
+					<Add option="-DXR_USE_GRAPHICS_API_OPENGL_ES"/>
+					<Add option="-DXR_USE_PLATFORM_XLIB"/>
+					<Add option="-DXR_USE_PLATFORM_EGL"/>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/oxr"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/renderdoc_api"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 st_oxr"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="st_oxr/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/oxr/libst_oxr.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/oxr"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DXR_USE_GRAPHICS_API_VULKAN"/>
+					<Add option="-DXR_USE_GRAPHICS_API_OPENGL"/>
+					<Add option="-DXR_USE_GRAPHICS_API_OPENGL_ES"/>
+					<Add option="-DXR_USE_PLATFORM_XLIB"/>
+					<Add option="-DXR_USE_PLATFORM_EGL"/>
+					<Add option="-DXRT_BUILD_DRIVER_ILLIXR"/>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/oxr"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/renderdoc_api"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 st_oxr/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/oxr/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ipc_shared">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/ipc/libipc_shared.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 ipc_shared"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ipc_shared/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/ipc/libipc_shared.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 ipc_shared/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ipc_client">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/ipc/libipc_client.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 ipc_client"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ipc_client/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/ipc/libipc_client.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 ipc_client/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/ipc/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="openxr_test">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/openxr_app/libopenxr_test.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/openxr_app"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/oxr/.."/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/renderdoc_api"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 openxr_test"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="openxr_test/fast">
+				<Option output="/home/friedel/devel/OpenXR_unified/build/openxr_app/libopenxr_test.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/friedel/devel/OpenXR_unified/build/openxr_app"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-D_GNU_SOURCE"/>
+					<Add directory="/usr/include/opencv4"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/aux"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/include"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/nanopb"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/oxr/.."/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/build/ipc"/>
+					<Add directory="/home/friedel/devel/OpenXR_unified/external/renderdoc_api"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 openxr_test/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/friedel/devel/OpenXR_unified/build/openxr_app/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_api.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_base.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_clock_offset.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_documentation.hpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_eigen_interop.hpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_filter_fifo.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_filter_fifo.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_filter_one_euro.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_filter_one_euro.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_hash.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_imu_3dof.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_imu_3dof.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_imu_pre.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_imu_pre.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_float.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_float.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_float.hpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_float_vector.hpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_integer.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_integer.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_lowpass_integer.hpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_matrix_2x2.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_matrix_4x4_f64.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_matrix_projection.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_optics.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_permutation.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_permutation.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_predict.c">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_predict.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_quatexpmap.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_rational.hpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_relation_history.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_relation_history.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_space.cpp">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_space.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_vec2.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/m_vec3.h">
+			<Option target="aux_math"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/os_documentation.h">
+			<Option target="aux_os"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/os_hid.h">
+			<Option target="aux_os"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/os_hid_hidraw.c">
+			<Option target="aux_os"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/os_threading.h">
+			<Option target="aux_os"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/os_time.cpp">
+			<Option target="aux_os"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/os_time.h">
+			<Option target="aux_os"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_autoexpgain.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_autoexpgain.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_bitwise.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_bitwise.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_builders.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_builders.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_config_json.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_config_json.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_debug.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_debug.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_deque.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_deque.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_device.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_device.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_distortion.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_distortion.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_distortion_mesh.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_distortion_mesh.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_documentation.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_file.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_file.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_file.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_format.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_format.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_frame.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_frame.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_generic_callbacks.hpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_git_tag.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hand_simulation.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hand_simulation.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hand_tracking.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hand_tracking.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_handles.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_handles.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hashmap.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hashmap.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hashset.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_hashset.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_id_ringbuffer.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_id_ringbuffer.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_imu_sink_force_monotonic.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_imu_sink_split.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_json.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_json.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_json.hpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_limited_unique_id.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_limited_unique_id.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_live_stats.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_live_stats.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_logging.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_logging.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_metrics.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_metrics.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_misc.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_misc.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_native_images_debug.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_pacing.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_pacing_app.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_pacing_compositor.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_pacing_compositor_fake.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_pretty_print.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_pretty_print.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_prober.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_prober.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_session.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_session.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_space_overseer.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_space_overseer.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_string_list.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_string_list.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_string_list.hpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_system.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_system.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_system_helpers.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_system_helpers.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_template_historybuf.hpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_time.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_time.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_trace_marker.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_trace_marker.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_tracked_imu_3dof.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_tracked_imu_3dof.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_var.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_var.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_vector.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_vector.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_verify.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_visibility_mask.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_visibility_mask.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_win32_com_guard.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_win32_com_guard.hpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_worker.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_worker.cpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_worker.h">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_worker.hpp">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_bundle_init.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_cmd.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_cmd.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_cmd_pool.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_cmd_pool.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_compositor_flags.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_debug.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_documentation.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_enumerate.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_function_loaders.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_helpers.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_helpers.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_image_allocator.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_image_allocator.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_image_readback_to_xf_pool.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_image_readback_to_xf_pool.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_mini_helpers.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_print.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_state_creators.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_surface_info.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_surface_info.h">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_sync_objects.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/vk_time.c">
+			<Option target="aux_vk"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/aux/bindings/b_generated_bindings.c">
+			<Option target="aux_generated_bindings"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/aux/bindings/b_generated_bindings.c.rule">
+			<Option target="aux_generated_bindings"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/aux/bindings/b_generated_bindings.h">
+			<Option target="aux_generated_bindings"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/aux/bindings/b_generated_bindings.h.rule">
+			<Option target="aux_generated_bindings"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/aux/util/u_git_tag.c">
+			<Option target="aux_util"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/ipc/ipc_client_generated.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/ipc/ipc_client_generated.c.rule">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/ipc/ipc_client_generated.h">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/ipc/ipc_client_generated.h.rule">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/ipc/ipc_protocol_generated.h">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/build/ipc/ipc_protocol_generated.h.rule">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_egl_client.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_egl_client.h">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_client.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_client.h">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_eglimage_swapchain.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_eglimage_swapchain.h">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_glue.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_memobj_swapchain.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_memobj_swapchain.h">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_xlib_client.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_xlib_client.h">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gl_xlib_glue.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_gles_glue.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_vk_client.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_vk_client.h">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/client/comp_vk_glue.c">
+			<Option target="comp_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/monado_metrics.pb.c">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/monado_metrics.pb.h">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb.h">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb_common.c">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb_common.h">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb_decode.c">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb_decode.h">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb_encode.c">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/nanopb/pb_encode.h">
+			<Option target="xrt-external-nanopb"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client.h">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_compositor.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_connection.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_connection.h">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_device.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_hmd.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_instance.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_session.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_space_overseer.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_system.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/client/ipc_client_system_devices.c">
+			<Option target="ipc_client"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/shared/ipc_message_channel.h">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/shared/ipc_message_channel_unix.c">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/shared/ipc_shmem.c">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/shared/ipc_shmem.h">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/shared/ipc_utils.c">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/shared/ipc_utils.h">
+			<Option target="ipc_shared"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/main.c">
+			<Option target="openxr-example"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/openxr_app/libopenxr.def">
+			<Option target="openxr_test"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/openxr_app/target.c">
+			<Option target="openxr_test"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_action.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_funcs.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_instance.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_session.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_space.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_swapchain.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_system.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_api_verify.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_binding.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_chain.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_dpad.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_event.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_extension_support.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_handle_base.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_input.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_input_transform.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_input_transform.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_instance.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_logger.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_logger.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_objects.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_path.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_pretty_print.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_pretty_print.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_session.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_session_frame_end.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_session_gfx_egl.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_session_gfx_gl_xlib.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_session_gfx_vk.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_space.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_swapchain.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_swapchain_gl.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_swapchain_vk.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_system.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_two_call.h">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_verify.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_vulkan.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/oxr_xdev.c">
+			<Option target="st_oxr"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindEGL.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindEigen3.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindHIDAPI.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindLibusb1.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindOpenGLES.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindSystemd.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/FindcJSON.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/Findudev.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/GenerateKhrManifest.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/GenerateKhrManifestInternals.cmake.in">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/cmake/GenerateOpenXRRuntimeManifest.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/cJSON/cJSONConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\cJSON\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/cJSON/cJSONConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\cJSON\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/cJSON/cjson-none.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\cJSON\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/cJSON/cjson.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\cJSON\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules-release.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/lib/x86_64-linux-gnu/cmake/opencv4/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\opencv4\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/share/eigen3/cmake/Eigen3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/share/eigen3/cmake/Eigen3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/../../../../usr/share/eigen3/cmake/Eigen3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\usr\share\eigen3\cmake\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/external/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\external\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\include\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/xrt/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\include\xrt\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/xrt/xrt_config_android.h.cmake_in">
+			<Option virtualFolder="CMake Files\include\xrt\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/xrt/xrt_config_build.h.cmake_in">
+			<Option virtualFolder="CMake Files\include\xrt\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/xrt/xrt_config_drivers.h.cmake_in">
+			<Option virtualFolder="CMake Files\include\xrt\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/xrt/xrt_config_have.h.cmake_in">
+			<Option virtualFolder="CMake Files\include\xrt\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/include/xrt/xrt_config_vulkan.h.cmake_in">
+			<Option virtualFolder="CMake Files\include\xrt\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\aux\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/bindings/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\aux\bindings\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/math/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\aux\math\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/os/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\aux\os\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\aux\util\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/util/u_git_tag.c.in">
+			<Option virtualFolder="CMake Files\aux\util\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/aux/vk/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\aux\vk\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/comp/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\comp\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/oxr/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\oxr\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/ipc/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ipc\"/>
+		</Unit>
+		<Unit filename="/home/friedel/devel/OpenXR_unified/openxr_app/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\openxr_app\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

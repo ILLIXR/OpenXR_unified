@@ -1,0 +1,2 @@
+/usr/bin/ar qc libaux_os.a CMakeFiles/aux_os.dir/os_hid_hidraw.c.o CMakeFiles/aux_os.dir/os_time.cpp.o
+/usr/bin/ranlib libaux_os.a

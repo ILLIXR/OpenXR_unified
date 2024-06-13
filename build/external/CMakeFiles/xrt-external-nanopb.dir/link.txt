@@ -1,0 +1,2 @@
+/usr/bin/ar qc libxrt-external-nanopb.a "CMakeFiles/xrt-external-nanopb.dir/nanopb/monado_metrics.pb.c.o" "CMakeFiles/xrt-external-nanopb.dir/nanopb/pb_common.c.o" "CMakeFiles/xrt-external-nanopb.dir/nanopb/pb_decode.c.o" "CMakeFiles/xrt-external-nanopb.dir/nanopb/pb_encode.c.o"
+/usr/bin/ranlib libxrt-external-nanopb.a

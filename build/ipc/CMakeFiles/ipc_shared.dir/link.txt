@@ -1,0 +1,2 @@
+/usr/bin/ar qc libipc_shared.a CMakeFiles/ipc_shared.dir/shared/ipc_shmem.c.o CMakeFiles/ipc_shared.dir/shared/ipc_utils.c.o CMakeFiles/ipc_shared.dir/shared/ipc_message_channel_unix.c.o
+/usr/bin/ranlib libipc_shared.a

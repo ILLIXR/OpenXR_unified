@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/friedel/devel/OpenXR_unified/aux/os/os_time.cpp
+xrt/xrt_config_os.h
+/home/friedel/devel/OpenXR_unified/aux/os/xrt/xrt_config_os.h
+inttypes.h
+-
+chrono
+-
+
+/home/friedel/devel/OpenXR_unified/include/xrt/xrt_config_os.h
+

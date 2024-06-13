@@ -1,0 +1,32 @@
+/home/friedel/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/friedel/oxr -DCMAKE_INSTALL_LIBDIR=/home/friedel/oxr/lib -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" -S /home/friedel/devel/OpenXR_unified -B /home/friedel/devel/OpenXR_unified/build
+CMake Deprecation Warning:
+  Support for "Extra Generators" like
+
+    CodeBlocks
+
+  is deprecated and will be removed from a future version of CMake.  IDEs may
+  use the cmake-file-api(7) to view CMake-generated project build trees.
+
+
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.5 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: GLX 
+-- Checking for modules 'gstreamer-1.0;gstreamer-app-1.0;gstreamer-video-1.0'
+--   Package 'libunwind', required by 'gstreamer-1.0', not found
+--   Package 'libunwind', required by 'gstreamer-1.0', not found
+--   Package 'libunwind', required by 'gstreamer-1.0', not found
+-- Checking for module 'survive'
+--   No package 'survive' found
+__ TRUE  :  True
+HAVE 2
+HAVE EGL------
+-- Configuring done (0.4s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/friedel/devel/OpenXR_unified/build

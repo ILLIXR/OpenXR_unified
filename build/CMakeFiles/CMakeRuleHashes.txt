@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+ad4e78ec302af72da6a77b886061f251 aux/bindings/b_generated_bindings.c
+d2022ae6558474189cdfdb71d5a13e85 aux/bindings/b_generated_bindings.h
+345fd6a4cb4a9b6e0848e4b04c9f78ea ipc/ipc_client_generated.c
+02c9425493f6c07cd9101013e9f19a18 ipc/ipc_client_generated.h
+a6efbc2994468e5ce60b2dd8e271f6c5 ipc/ipc_protocol_generated.h
